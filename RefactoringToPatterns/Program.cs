@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using RefactoringToPatterns.Visitor.TextExtractor.Before;
+using RefactoringToPatterns.Bridge.Algebraic_Hierarchy.After;
 
 
 PlayGround.Test();
