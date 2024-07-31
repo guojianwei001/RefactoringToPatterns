@@ -2,8 +2,8 @@
 
 // the complete code is from https://www.kenneth-truyers.net/2013/07/15/flexible-and-expressive-unit-tests-with-the-builder-pattern/
 /*
-0. decoupled the construction from the constructor and provided an API(builder) for constructing employee-objects. 
-1. Only relevant data for that particular unit test is present in the test. 
+0. decoupled the construction from the constructor and provided an API(builder) for constructing employee-objects.
+1. Only relevant data for that particular unit test is present in the test. default+override pattern
 2. When the constructor changes, we only need to modify the builder, our existing tests will remain untouched.
 3. The Builder is part of your test suite. In general, it should live inside your test-project, not inside the production code.
  */
