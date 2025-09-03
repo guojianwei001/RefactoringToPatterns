@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using RefactoringToPatterns.Builder.TDD;
+using RefactoringToPatterns.Builder.TreeNode;
 
-PlayGround.GetAgeReturnsCorrectValue();
+PlayGround.Test();
 
 
 

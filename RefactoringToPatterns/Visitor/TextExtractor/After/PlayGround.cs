@@ -1,10 +1,9 @@
-﻿namespace RefactoringToPatterns.Visitor.TextExtractor.After
+﻿namespace RefactoringToPatterns.Visitor.TextExtractor.After;
+
+public class PlayGround
 {
-    public class PlayGround
+    public static void Test()
     {
-        public static void Test()
-        {
-            Console.WriteLine(new TextExtractorVisitor().extracText());
-        }
+        Console.WriteLine(new TextExtractorVisitor().extracText());
     }
 }

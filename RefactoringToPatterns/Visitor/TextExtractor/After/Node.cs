@@ -1,31 +1,30 @@
-﻿namespace RefactoringToPatterns.Visitor.TextExtractor.After
+﻿namespace RefactoringToPatterns.Visitor.TextExtractor.After;
+
+public interface Node
 {
-    public interface Node
-    {
-        void acceptVisitor(NodeVisitor visitor);
-    }
+    void acceptVisitor(NodeVisitor visitor);
+}
 
-    public class Tag : Node
+public class Tag : Node
+{
+    public void acceptVisitor(NodeVisitor visitor)
     {
-        public void acceptVisitor(NodeVisitor visitor)
-        {
-            visitor.visitTag(this);
-        }
+        visitor.visitTag(this);
     }
+}
 
-    public class LinkTag : Node
+public class LinkTag : Node
+{
+    public void acceptVisitor(NodeVisitor visitor)
     {
-        public void acceptVisitor(NodeVisitor visitor)
-        {
-            visitor.visitLinkTag(this);
-        }
+        visitor.visitLinkTag(this);
     }
+}
 
-    public class StringNode : Node
+public class StringNode : Node
+{
+    public void acceptVisitor(NodeVisitor visitor)
     {
-        public void acceptVisitor(NodeVisitor visitor)
-        {
-            visitor.visitStringNode(this);
-        }
+        visitor.visitStringNode(this);
     }
 }

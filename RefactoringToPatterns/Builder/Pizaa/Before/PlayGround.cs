@@ -1,12 +1,11 @@
-﻿namespace RefactoringToPatterns.Builder.Pizaa.Before
-{
-    public class PlayGround
-    {
-        public static void Test()
-        {
-            var pizza = new Pizza(12, true, true, true);
+﻿namespace RefactoringToPatterns.Builder.Pizaa.Before;
 
-            Console.WriteLine(pizza);
-        }
+public class PlayGround
+{
+    public static void Test()
+    {
+        var pizza = new Pizza(12, true, true, true);
+
+        Console.WriteLine(pizza);
     }
 }

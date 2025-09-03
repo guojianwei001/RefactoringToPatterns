@@ -1,42 +1,41 @@
 ﻿using System.Text;
 
-namespace RefactoringToPatterns.Visitor.TextExtractor.After
+namespace RefactoringToPatterns.Visitor.TextExtractor.After;
+
+public interface NodeVisitor
 {
-    public interface NodeVisitor
+    void visitTag(Tag tag);
+    void visitLinkTag(LinkTag linkTag);
+    void visitStringNode(StringNode stringNode);
+}
+
+public class TextExtractorVisitor : NodeVisitor
+{
+    private StringBuilder results = new StringBuilder();
+
+    public string extracText()
     {
-        void visitTag(Tag tag);
-        void visitLinkTag(LinkTag linkTag);
-        void visitStringNode(StringNode stringNode);
+        var nodes = new Node[3] {new Tag(), new LinkTag(), new StringNode()};
+        foreach (var node in nodes)
+        {
+            node.acceptVisitor(this);
+        }
+
+        return this.results.ToString();
     }
 
-    public class TextExtractorVisitor : NodeVisitor
+    public void visitLinkTag(LinkTag linkTag)
     {
-        private StringBuilder results = new StringBuilder();
+        this.results.AppendLine($"visiting LinkTag");
+    }
 
-        public string extracText()
-        {
-            var nodes = new Node[3] {new Tag(), new LinkTag(), new StringNode()};
-            foreach (var node in nodes)
-            {
-                node.acceptVisitor(this);
-            }
+    public void visitStringNode(StringNode stringNode)
+    {
+        this.results.AppendLine($"visiting StringNode");
+    }
 
-            return this.results.ToString();
-        }
-
-        public void visitLinkTag(LinkTag linkTag)
-        {
-            this.results.AppendLine($"visiting LinkTag");
-        }
-
-        public void visitStringNode(StringNode stringNode)
-        {
-            this.results.AppendLine($"visiting StringNode");
-        }
-
-        public void visitTag(Tag tag)
-        {
-            this.results.AppendLine($"visiting Tag");
-        }
+    public void visitTag(Tag tag)
+    {
+        this.results.AppendLine($"visiting Tag");
     }
 }
