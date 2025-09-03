@@ -1,17 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 
 namespace RefactoringToPatterns.Builder.TreeNode;
 
-// 这是我们最终要创建的“产品” (Product)
 public class TreeNode<T>
 {
     public T Value { get; }
     public IReadOnlyDictionary<string, string> Attributes { get; }
     public IReadOnlyList<TreeNode<T>> Children { get; }
 
-    // 构造函数设为 internal，强制通过 Builder 创建
+    // set ctor as internal，force to use Builder to create object
     internal TreeNode(T value, Dictionary<string, string> attributes, List<TreeNode<T>> children)
     {
         Value = value;
@@ -19,7 +16,7 @@ public class TreeNode<T>
         Children = children;
     }
 
-    // 辅助方法：漂亮地打印树结构，用于验证结果
+    // print for verify
     public string PrintTree(string indent = "")
     {
         var sb = new StringBuilder();

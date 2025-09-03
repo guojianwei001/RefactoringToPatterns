@@ -1,12 +1,10 @@
-﻿using RefactoringToPatterns.Builder.TreeNode;
-
-namespace RefactoringToPatterns.Builder.TreeNode;
+﻿namespace RefactoringToPatterns.Builder.TreeNode;
 
 public class PlayGround
 {
     public static void Test()
     {
-        // 1. 我们的源 Markdown 文本
+        // 1. source Markdown text
         string markdownInput = @"
 - CEO (name: Alice, office: A-101)
   - CTO (name: Bob)
@@ -22,13 +20,13 @@ public class PlayGround
 
         Console.WriteLine("--- Parsing Markdown Tree ---");
 
-        // 2. 调用解析器
-        TreeNode<string> companyTree = MarkdownTreeParser.Parse(markdownInput);
+        // 2. parser
+        var companyTree = MarkdownTreeParser.Parse(markdownInput);
 
         Console.WriteLine("Parsing complete!");
         Console.WriteLine("");
 
-        // 3. 打印构建好的树对象进行验证
+        // 3. print for verify
         if (companyTree != null)
         {
             Console.WriteLine("--- Resulting Tree Object ---");
